@@ -1,0 +1,21 @@
+input_processing_labels: ["lable1","label2"]
+
+# For CMR Search Step
+input_cmr_collection_name: "C2408009906-LPCLOUD"
+input_cmr_search_start_time: "2024-01-03T13:19:36.000Z"
+input_cmr_search_stop_time: "2024-01-03T13:19:36.000Z"
+
+input_unity_dapa_client:"71g0c73jl77gsqhtlfg2ht388c"
+input_unity_dapa_api:"https://1gp9st60gd.execute-api.us-west-2.amazonaws.com/dev/"
+
+#for chirp rebinning step
+# none -
+input_crid: "001"
+
+# For unity data upload step, unity catalog
+output_collection_id: "urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___1"
+
+# throws error if 's3:// is used'
+output_data_bucket: "uds-dev-cumulus-protected"
+
+
