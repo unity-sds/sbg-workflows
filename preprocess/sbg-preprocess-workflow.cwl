@@ -37,7 +37,6 @@ inputs:
   output_collection_id: string
   output_data_bucket: string
 
-
 outputs: 
   results: 
     type: File
@@ -55,7 +54,7 @@ steps:
       # cmr_edl_pass: "null"
     out: [results]
   preprocess:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-preprocess/versions/5/PLAIN-CWL/descriptor/%2Fworkflow.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-preprocess/versions/11/PLAIN-CWL/descriptor/%2Fworkflow.cwl
     in:
       # input configuration for stage-in
       # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
@@ -70,6 +69,7 @@ steps:
                 edl_password: '/sps/processing/workflows/edl_password',
                 edl_username: '/sps/processing/workflows/edl_username',
                 edl_password_type: 'PARAM_STORE',
+                downloading_keys: 'data, data1',
                 log_level: '20'
               };
           }
