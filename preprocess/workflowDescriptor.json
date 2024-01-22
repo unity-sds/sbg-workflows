@@ -1,0 +1,131 @@
+{
+    "processDescription": {
+        "process": {
+            "id": "sbg-preprocess-workflow:1",
+            "title": "SBG Preprocess Workflow\n",
+            "owsContext": {
+                "offering": {
+                    "content": {
+                        "href": "https://raw.githubusercontent.com/unity-sds/sbg-workflows/main/preprocess/sbg-preprocess-workflow.cwl"
+                    }
+                }
+            },
+            "abstract": "workflow for executing the pre-process workflow via WPS",
+            "keywords": [
+                "SBG",
+                "pre-process"
+            ],
+            "inputs": [
+                {
+                    "id": "input_cmr_collection_name",
+                    "title": "CMR Collection Name",
+                    "formats": [
+                        {
+                          "mimeType": "text",
+                          "default": true
+                        }
+                    ]
+                },
+                {
+                    "id": "input_cmr_search_start_time",
+                    "title": "CMR Start Search Time",
+                    "formats": [
+                        {
+                          "mimeType": "text",
+                          "default": true
+                        }
+                    ]
+                },
+                {
+                    "id": "input_cmr_search_stop_time",
+                    "title": "CMR Start Stop Time",
+                    "formats": [
+                        {
+                          "mimeType": "text",
+                          "default": true
+                        }
+                    ]
+                },
+                {
+                    "id": "input_unity_dapa_api",
+                    "title": "DAPA Endpoint to use",
+                    "formats": [
+                        {
+                          "mimeType": "text",
+                          "default": true
+                        }
+                    ]
+                },
+                {
+                    "id": "input_unity_dapa_client",
+                    "title": "DAPA Client ID to use",
+                    "formats": [
+                        {
+                          "mimeType": "text",
+                          "default": true
+                        }
+                    ]
+                },
+                {
+                    "id": "input_crid",
+                    "title": "Product CRID to use",
+                    "formats": [
+                        {
+                          "mimeType": "text",
+                          "default": true
+                        }
+                    ]
+                },
+                {
+                    "id": "output_collection_id",
+                    "title": "colleciton ID for output files",
+                    "formats": [
+                        {
+                          "mimeType": "text",
+                          "default": true
+                        }
+                    ]
+                },
+                {
+                    "id": "output_data_bucket",
+                    "title": "Data Bucketfor output files",
+                    "formats": [
+                        {
+                          "mimeType": "text",
+                          "default": true
+                        }
+                    ]
+                }
+
+            ],
+            "outputs": [
+                {
+                    "id": "results",
+                    "title": "Output of the job",
+                    "output": {
+                        "formats": [
+                            {
+                                "mimeType": "text/*",
+                                "default": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "processVersion": "1.0.0",
+        "jobControlOptions": [
+            "async-execute"
+        ],
+        "outputTransmission": [
+            "reference"
+        ]
+    },
+    "immediateDeployment": true,
+    "executionUnit": [
+        {
+            "href": "docker://gangl/sbg-unity-preprocess:84dc8d65"
+        }
+    ],
+    "deploymentProfileName":"http://www.opengis.net/profiles/eoc/dockerizedApplication"
+}
