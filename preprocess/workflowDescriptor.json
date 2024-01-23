@@ -1,20 +1,18 @@
 {
     "processDescription": {
         "process": {
-            "id": "sbg-preprocess-workflow:1",
-            "title": "SBG Preprocess Workflow\n",
+            "id": "sbg-preprocess-workflow",
+            "title": "SBG Preprocess Workflow",
             "owsContext": {
                 "offering": {
+                    "code":"http://www.opengis.net/eoc/applicationContext/cwl",
                     "content": {
                         "href": "https://raw.githubusercontent.com/unity-sds/sbg-workflows/main/preprocess/sbg-preprocess-workflow.cwl"
                     }
                 }
             },
             "abstract": "workflow for executing the pre-process workflow via WPS",
-            "keywords": [
-                "SBG",
-                "pre-process"
-            ],
+            "keywords": [],
             "inputs": [
                 {
                     "id": "input_cmr_collection_name",
@@ -98,20 +96,7 @@
                 }
 
             ],
-            "outputs": [
-                {
-                    "id": "results",
-                    "title": "Output of the job",
-                    "output": {
-                        "formats": [
-                            {
-                                "mimeType": "text/*",
-                                "default": true
-                            }
-                        ]
-                    }
-                }
-            ]
+            "outputs": []
         },
         "processVersion": "1.0.0",
         "jobControlOptions": [
