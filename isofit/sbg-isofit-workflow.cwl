@@ -78,6 +78,7 @@ steps:
           ${
               return {
                 crid: self[1],
+                cores: 1,
                 sensor: 'EMIT',
                 temp_directory: '/tmp',
                 output_collection: self[0]
