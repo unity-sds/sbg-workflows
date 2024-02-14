@@ -8,6 +8,12 @@ input_cmr_search_stop_time: "2024-01-03T13:19:36.000Z"
 input_stac: 
   class: File
   path: 'files/input_stac.dev.json'
+
+input_aux_stac:
+  class: File
+  path: 'files/input_aux_stac.dev.json'
+
+
 # U-DS config
 input_unity_dapa_client: "40c2s0ulbhp9i0fmaph3su9jch"
 input_unity_dapa_api: "https://d3vc8w9zcq658.cloudfront.net"

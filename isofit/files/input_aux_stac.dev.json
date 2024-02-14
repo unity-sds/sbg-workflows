@@ -1,0 +1,85 @@
+{
+  "numberMatched": {
+    "total_size": 3749
+  },
+  "numberReturned": 10,
+  "stac_version": "1.0.0",
+  "type": "FeatureCollection",
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://d3vc8w9zcq658.cloudfront.net/am-uds-dapa/collections/urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5/items?limit=10"
+    },
+    {
+      "rel": "root",
+      "href": "https://d3vc8w9zcq658.cloudfront.net"
+    },
+    {
+      "rel": "next",
+      "href": "https://d3vc8w9zcq658.cloudfront.net/am-uds-dapa/collections/urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5/items?limit=10&offset=urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5:SNDR_tile_2016_s320_N02p75_E050p00_L1_AQ_v1_D_2402121707762828.nc"
+    }
+  ],
+  "features": [
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5:SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc",
+      "properties": {
+        "datetime": "2024-02-12T20:53:59.482000Z",
+        "start_datetime": "2023-06-15T01:31:12.467000Z",
+        "end_datetime": "2023-06-15T01:36:12.467000Z",
+        "created": "2023-06-15T01:31:12.467000Z",
+        "updated": "2024-02-12T20:54:08.656000Z",
+        "status": "completed",
+        "provider": "unity"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0,
+          0.0
+        ]
+      },
+      "links": [
+        {
+          "rel": "collection",
+          "href": "."
+        }
+      ],
+      "assets": {
+        "SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc.cmr.xml": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5/urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5:SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc/SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc.cmr.xml",
+          "title": "SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc.cmr.xml",
+          "description": "size=1817;checksumType=md5;checksum=b0186dda1466f3e7aa4beb1337666008;",
+          "roles": [
+            "metadata"
+          ]
+        },
+        "SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5/urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5:SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc/SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc",
+          "title": "SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc",
+          "description": "size=-1;checksumType=md5;checksum=unknown;",
+          "roles": [
+            "data"
+          ]
+        },
+        "SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc.json": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5/urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5:SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc/SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc.json",
+          "title": "SNDR_tile_2016_s320_N02p75_E005p00_L1_AQ_v1_D_2402121707762828.nc.json",
+          "description": "size=-1;checksumType=md5;checksum=unknown;",
+          "roles": [
+            "metadata"
+          ]
+        }
+      },
+      "bbox": [
+        -180.0,
+        -90.0,
+        180.0,
+        90.0
+      ],
+      "stac_extensions": [],
+      "collection": "urn:nasa:unity:uds_local_test:DEV1:CHRP_16_DAY_REBIN___5"
+    }
+  ]
+}
