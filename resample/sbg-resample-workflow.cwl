@@ -62,7 +62,7 @@ steps:
               return {
                 crid: self[1],
                 temp_directory: '/tmp',
-                output_collection: self[0]
+                output_collection_name: self[0]
               };
           }
       #input configuration for stage-out
