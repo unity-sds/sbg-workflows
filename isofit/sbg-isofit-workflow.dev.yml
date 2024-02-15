@@ -24,7 +24,7 @@ input_unity_dapa_api: "https://d3vc8w9zcq658.cloudfront.net"
 input_crid: "001"
 
 # For unity data upload step, unity catalog
-output_collection_id: "urn:nasa:unity:unity:dev:SBG-L1B_PRE___1"
+output_collection_id: "urn:nasa:unity:unity:dev:SBG-L2A_RFL___1"
 
 # throws error if 's3:// is used'
 output_data_bucket: "sps-dev-ds-storage"
