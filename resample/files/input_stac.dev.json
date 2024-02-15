@@ -1,0 +1,121 @@
+{
+  "numberMatched": {
+    "total_size": 1
+  },
+  "numberReturned": 1,
+  "stac_version": "1.0.0",
+  "type": "FeatureCollection",
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://d3vc8w9zcq658.cloudfront.net/am-uds-dapa/collections/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1/items?limit=10"
+    },
+    {
+      "rel": "root",
+      "href": "https://d3vc8w9zcq658.cloudfront.net"
+    }
+  ],
+  "features": [
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "urn:nasa:unity:unity:dev:SBG-L2A_RFL___1:SISTER_EMIT_L2A_RFL_20240103T131936_001",
+      "properties": {
+        "datetime": "2024-02-15T22:19:45.398000Z",
+        "start_datetime": "2024-01-03T13:19:36Z",
+        "end_datetime": "2024-01-03T13:19:48Z",
+        "created": "2024-01-03T13:19:36Z",
+        "updated": "2024-02-15T22:20:27.665000Z",
+        "status": "completed",
+        "provider": "unity"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.0,
+          0.0
+        ]
+      },
+      "links": [
+        {
+          "rel": "collection",
+          "href": "."
+        }
+      ],
+      "assets": {
+        "SISTER_EMIT_L2A_RFL_20240103T131936_001.cmr.xml": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1:SISTER_EMIT_L2A_RFL_20240103T131936_001/SISTER_EMIT_L2A_RFL_20240103T131936_001.cmr.xml",
+          "title": "SISTER_EMIT_L2A_RFL_20240103T131936_001.cmr.xml",
+          "description": "size=1761;checksumType=md5;checksum=30e70e2082ff2c352c36ba612e3eadd2;",
+          "roles": [
+            "metadata"
+          ]
+        },
+        "SISTER_EMIT_L2A_RFL_20240103T131936_001.json": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1:SISTER_EMIT_L2A_RFL_20240103T131936_001/SISTER_EMIT_L2A_RFL_20240103T131936_001.json",
+          "title": "SISTER_EMIT_L2A_RFL_20240103T131936_001.json",
+          "description": "size=-1;checksumType=md5;checksum=unknown;",
+          "roles": [
+            "metadata"
+          ]
+        },
+        "SISTER_EMIT_L2A_RFL_20240103T131936_001_UNC.hdr": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1:SISTER_EMIT_L2A_RFL_20240103T131936_001/SISTER_EMIT_L2A_RFL_20240103T131936_001_UNC.hdr",
+          "title": "SISTER_EMIT_L2A_RFL_20240103T131936_001_UNC.hdr",
+          "description": "size=-1;checksumType=md5;checksum=unknown;",
+          "roles": [
+            "metadata"
+          ]
+        },
+        "SISTER_EMIT_L2A_RFL_20240103T131936_001.log": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1:SISTER_EMIT_L2A_RFL_20240103T131936_001/SISTER_EMIT_L2A_RFL_20240103T131936_001.log",
+          "title": "SISTER_EMIT_L2A_RFL_20240103T131936_001.log",
+          "description": "size=-1;checksumType=md5;checksum=unknown;",
+          "roles": [
+            "metadata"
+          ]
+        },
+        "SISTER_EMIT_L2A_RFL_20240103T131936_001.hdr": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1:SISTER_EMIT_L2A_RFL_20240103T131936_001/SISTER_EMIT_L2A_RFL_20240103T131936_001.hdr",
+          "title": "SISTER_EMIT_L2A_RFL_20240103T131936_001.hdr",
+          "description": "size=-1;checksumType=md5;checksum=unknown;",
+          "roles": [
+            "metadata"
+          ]
+        },
+        "SISTER_EMIT_L2A_RFL_20240103T131936_001_UNC.bin": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1:SISTER_EMIT_L2A_RFL_20240103T131936_001/SISTER_EMIT_L2A_RFL_20240103T131936_001_UNC.bin",
+          "title": "SISTER_EMIT_L2A_RFL_20240103T131936_001_UNC.bin",
+          "description": "size=-1;checksumType=md5;checksum=unknown;",
+          "roles": [
+            "data"
+          ]
+        },
+        "SISTER_EMIT_L2A_RFL_20240103T131936_001.bin": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1:SISTER_EMIT_L2A_RFL_20240103T131936_001/SISTER_EMIT_L2A_RFL_20240103T131936_001.bin",
+          "title": "SISTER_EMIT_L2A_RFL_20240103T131936_001.bin",
+          "description": "size=-1;checksumType=md5;checksum=unknown;",
+          "roles": [
+            "data"
+          ]
+        },
+        "SISTER_EMIT_L2A_RFL_20240103T131936_001.png": {
+          "href": "s3://sps-dev-ds-storage/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1/urn:nasa:unity:unity:dev:SBG-L2A_RFL___1:SISTER_EMIT_L2A_RFL_20240103T131936_001/SISTER_EMIT_L2A_RFL_20240103T131936_001.png",
+          "title": "SISTER_EMIT_L2A_RFL_20240103T131936_001.png",
+          "description": "size=-1;checksumType=md5;checksum=unknown;",
+          "roles": [
+            "browse"
+          ]
+        }
+      },
+      "bbox": [
+        -180.0,
+        -90.0,
+        180.0,
+        90.0
+      ],
+      "stac_extensions": [],
+      "collection": "urn:nasa:unity:unity:dev:SBG-L2A_RFL___1"
+    }
+  ]
+}
