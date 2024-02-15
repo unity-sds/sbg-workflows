@@ -36,10 +36,10 @@ inputs:
 outputs: 
   results: 
     type: File
-    outputSource: preprocess/stage_out_results
+    outputSource: isofit/stage_out_results
 
 steps:
-  preprocess:
+  isofit:
     run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-isofit/versions/10/PLAIN-CWL/descriptor/%2FDockstore.cwl
     in:
       # input configuration for stage-in
@@ -101,7 +101,7 @@ steps:
               };
           }
     out: [stage_out_results, stage_out_success, stage_out_failures]
-  data-catalog:
+  isofit-data-catalog:
     #run: catalog/catalog.cwl
     run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2Fcatalog-trial/versions/12/PLAIN-CWL/descriptor/%2FDockstore.cwl
     in:
@@ -113,5 +113,5 @@ steps:
         valueFrom: "PARAM_STORE"
       unity_client_id: input_unity_dapa_client
       unity_dapa_api: input_unity_dapa_api
-      uploaded_files_json: preprocess/stage_out_success
+      uploaded_files_json: isofit/stage_out_success
     out: [results]
