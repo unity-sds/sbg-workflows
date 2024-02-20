@@ -27,3 +27,4 @@ input_aux_stac:
 
 # For unity data upload step, unity catalog
 output_isofit_collection_id: "urn:nasa:unity:unity:dev:SBG-L2A_RFL___1"
+output_resample_collection_id: "urn:nasa:unity:unity:dev:SBG-L2A_RSRFL___1"
