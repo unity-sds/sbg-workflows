@@ -52,10 +52,7 @@ steps:
               return {
                 download_type: 'S3',
                 stac_json: self[0].contents,
-                edl_password: '',
-                edl_username: '',
                 downloading_roles: 'data, metadata',
-                log_level: '20',
                 unity_client_id: self[1],
                 unity_stac_auth: 'NONE'
               };
@@ -78,13 +75,8 @@ steps:
         valueFrom: |
           ${
               return {
-                aws_access_key_id: '',
-                aws_region: 'us-west-2',
-                aws_secret_access_key: '',
-                aws_session_token: '',
                 collection_id: self[1],
                 staging_bucket: self[0],
-                log_level: '20'
               };
           }
     out: [stage_out_results, stage_out_success, stage_out_failures]
