@@ -20,10 +20,7 @@ inputs:
   # Generic inputs
   input_processing_labels: string[]
 
-  # For CMR Search Step
-  input_cmr_collection_name: string
-  input_cmr_search_start_time: string
-  input_cmr_search_stop_time: string
+  input_cmr_stac: string
 
   # catalog inputs
   input_unity_dapa_api: string
@@ -43,34 +40,27 @@ outputs:
     outputSource: preprocess/stage_out_results
 
 steps:
-  cmr-step:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2Fcmr-trial/versions/4/PLAIN-CWL/descriptor/%2FDockstore.cwl
-    in:
-      cmr_collection : input_cmr_collection_name
-      cmr_start_time: input_cmr_search_start_time
-      cmr_stop_time: input_cmr_search_stop_time
-      # # Need to understand the best way of inputting this credential, nullables
-      # cmr_edl_user: "null"
-      # cmr_edl_pass: "null"
-    out: [results]
   preprocess:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-preprocess/versions/16/PLAIN-CWL/descriptor/%2Fworkflow.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-preprocess/versions/18/PLAIN-CWL/descriptor/%2Fworkflow.cwl
     in:
       # input configuration for stage-in
       # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
       # README available at https://github.com/unity-sds/unity-data-services/blob/main/docker/Readme.md
       stage_in:
-        source: [cmr-step/results]
+        source: [input_cmr_stac, input_unity_dapa_client]
         valueFrom: |
           ${
               return {
                 download_type: 'DAAC',
-                stac_json: self,
+                stac_json: self[0],
                 edl_password: '/sps/processing/workflows/edl_password',
                 edl_username: '/sps/processing/workflows/edl_username',
                 edl_password_type: 'PARAM_STORE',
                 downloading_keys: 'data, data1',
-                log_level: '20'
+                downloading_roles: '',
+                log_level: '20',
+                unity_client_id: self[1],
+                unity_stac_auth: 'NONE'
               };
           }
       #input configuration for process
