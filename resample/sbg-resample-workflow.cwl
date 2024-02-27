@@ -23,10 +23,10 @@ inputs:
 
   #for preprocess  step
   input_crid: string
-  input_stac: 
-    type: File
-    inputBinding:
-      loadContents: true
+  input_stac: File 
+    #type: File
+    #inputBinding:
+    #  loadContents: true
 
 
   # For unity data stage-out step, unity catalog
@@ -40,7 +40,7 @@ outputs:
 
 steps:
   resample:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-resample/versions/3/PLAIN-CWL/descriptor/%2Fworkflow.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-resample/versions/20/PLAIN-CWL/descriptor/%2Fworkflow.cwl
     in:
       # input configuration for stage-in
       # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
@@ -51,7 +51,7 @@ steps:
           ${
               return {
                 download_type: 'S3',
-                stac_json: self[0].contents,
+                stac_json: self[0],
                 downloading_roles: 'data, metadata',
                 unity_client_id: self[1],
                 unity_stac_auth: 'NONE'
