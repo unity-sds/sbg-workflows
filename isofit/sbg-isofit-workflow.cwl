@@ -27,7 +27,9 @@ inputs:
   #for preprocess  step
   input_crid: string
   input_stac: File 
-  input_aux_stac: File
+  input_aux_stac: 
+    - string
+    - File
 
   # For unity data stage-out step, unity catalog
   output_collection_id: string
@@ -40,34 +42,34 @@ outputs:
 
 steps:
   isofit:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-isofit/versions/12/PLAIN-CWL/descriptor/%2FDockstore.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-isofit/versions/15/PLAIN-CWL/descriptor/%2FDockstore.cwl
     in:
       # input configuration for stage-in
       # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
       # README available at https://github.com/unity-sds/unity-data-services/blob/main/docker/Readme.md
       stage_in:
-        source: [input_stac]
+        source: [input_stac, input_unity_dapa_client]
         valueFrom: |
           ${
               return {
                 download_type: 'S3',
-                stac_json: self,
-                edl_password: '',
-                edl_username: '',
+                stac_json: self[0],
+                unity_stac_auth: 'NONE',
+                unity_client_id: self[1],
                 downloading_roles: 'data, metadata',
                 log_level: '20'
               };
           }
       #input configuration for process
       stage_aux_in:
-        source: [input_aux_stac]
+        source: [input_aux_stac, input_unity_dapa_client]
         valueFrom: |
           ${
               return {
                 download_type: 'S3',
-                stac_json: self,
-                edl_password: '',
-                edl_username: '',
+                stac_json: self[0],
+                unity_stac_auth: 'NONE',
+                unity_client_id: self[1],
                 downloading_roles: 'data, metadata',
                 log_level: '20'
               };
