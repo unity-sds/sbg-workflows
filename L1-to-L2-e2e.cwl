@@ -263,3 +263,9 @@ steps:
       unity_dapa_api: input_unity_dapa_api
       uploaded_files_json: resample/stage_out_success
     out: [results]
+  stac-merge:
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2Fstac-merge/versions/1/PLAIN-CWL/descriptor/%2FDockstore.cwl
+    in: 
+     input_files: [resample/stage_out_success, preprocess/stage_out_success]
+    out: [results]
+  
