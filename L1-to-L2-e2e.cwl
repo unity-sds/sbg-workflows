@@ -40,6 +40,7 @@ inputs:
   output_preprocess_collection_id: string
   output_isofit_collection_id: string
   output_resample_collection_id: string
+  output_refcorrect_collection_id: string
 
   output_data_bucket: string
 
@@ -61,22 +62,25 @@ steps:
       # cmr_edl_pass: "null"
     out: [results]
   preprocess:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-preprocess/versions/16/PLAIN-CWL/descriptor/%2Fworkflow.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-preprocess/versions/21/PLAIN-CWL/descriptor/%2Fworkflow.cwl
     in:
       # input configuration for stage-in
       # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
       # README available at https://github.com/unity-sds/unity-data-services/blob/main/docker/Readme.md
       stage_in:
-        source: [cmr-step/results]
+        source: [cmr-step/results, input_unity_dapa_client]
         valueFrom: |
           ${
               return {
                 download_type: 'DAAC',
-                stac_json: self,
+                stac_json: self[0],
                 edl_password: '/sps/processing/workflows/edl_password',
                 edl_username: '/sps/processing/workflows/edl_username',
                 edl_password_type: 'PARAM_STORE',
                 downloading_keys: 'data, data1',
+                downloading_roles: '',
+                unity_stac_auth: 'NONE',
+                unity_client_id: self[1],
                 log_level: '10'
               };
           }
@@ -125,7 +129,7 @@ steps:
     out: [results]
 
   isofit:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-isofit/versions/15/PLAIN-CWL/descriptor/%2FDockstore.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-isofit/versions/16/PLAIN-CWL/descriptor/%2FDockstore.cwl
     in:
       # input configuration for stage-in
       # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
@@ -203,20 +207,20 @@ steps:
     out: [results]
 
   resample:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-resample/versions/2/PLAIN-CWL/descriptor/%2Fworkflow.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-resample/versions/21/PLAIN-CWL/descriptor/%2Fworkflow.cwl
     in:
       # input configuration for stage-in
       # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
       # README available at https://github.com/unity-sds/unity-data-services/blob/main/docker/Readme.md
       stage_in:
-        source: [isofit/stage_out_success]
+        source: [isofit/stage_out_success, output_resample_collection_id]
         valueFrom: |
           ${
               return {
                 download_type: 'S3',
-                stac_json: self,
-                edl_password: '',
-                edl_username: '',
+                unity_stac_auth: 'NONE',
+                unity_client_id: self[1],
+                stac_json: self[0],
                 downloading_roles: 'data, metadata',
                 log_level: '10'
               };
@@ -267,5 +271,64 @@ steps:
     run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2Fstac-merge/versions/1/PLAIN-CWL/descriptor/%2FDockstore.cwl
     in: 
      input_files: [resample/stage_out_success, preprocess/stage_out_success]
+    out: [results]
+  reflect-correct:
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-reflect-correct/versions/4/PLAIN-CWL/descriptor/%2Fworkflow.cwl
+    in:
+      # input configuration for stage-in
+      # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
+      # README available at https://github.com/unity-sds/unity-data-services/blob/main/docker/Readme.md
+      stage_in:
+        source: [stac-merge/results, input_unity_dapa_client]
+        valueFrom: |
+          ${
+              return {
+                download_type: 'S3',
+                stac_json: self[0],
+                unity_stac_auth: 'NONE',
+                unity_client_id: self[1],
+                downloading_roles: 'data, metadata',
+                log_level: '20'
+              };
+          }
+      #input configuration for process
+      parameters:
+        source: [output_refcorrect_collection_id, input_crid]
+        valueFrom: |
+          ${
+              return {
+                crid: self[1],
+                sensor: 'EMIT',
+                temp_directory: '/tmp',
+                output_collection: self[0]
+              };
+          }
+      #input configuration for stage-out
+      # readme available at https://github.com/unity-sds/unity-data-services/blob/main/docker/Readme.md
+      stage_out:
+        source: [output_data_bucket, output_refcorrect_collection_id]
+        valueFrom: |
+          ${
+              return {
+                aws_region: 'us-west-2',
+                collection_id: self[1],
+                staging_bucket: self[0],
+                log_level: '20'
+              };
+          }
+    out: [stage_out_results, stage_out_success, stage_out_failures]
+  reflect-correct-data-catalog:
+    #run: catalog/catalog.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2Fcatalog-trial/versions/12/PLAIN-CWL/descriptor/%2FDockstore.cwl
+    in:
+      unity_username:
+        valueFrom: "/sps/processing/workflows/unity_username"
+      unity_password:
+        valueFrom: "/sps/processing/workflows/unity_password"
+      password_type:
+        valueFrom: "PARAM_STORE"
+      unity_client_id: input_unity_dapa_client
+      unity_dapa_api: input_unity_dapa_api
+      uploaded_files_json: reflect-correct/stage_out_success
     out: [results]
   
