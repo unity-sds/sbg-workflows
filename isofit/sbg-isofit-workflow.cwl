@@ -23,10 +23,14 @@ inputs:
   # catalog inputs
   input_unity_dapa_api: string
   input_unity_dapa_client: string
+  unity_stac_auth: string
+
 
   #for preprocess  step
   input_crid: string
-  input_stac: File 
+  input_stac: 
+    - string
+    - File 
   input_aux_stac: 
     - string
     - File
@@ -42,19 +46,19 @@ outputs:
 
 steps:
   isofit:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-isofit/versions/15/PLAIN-CWL/descriptor/%2FDockstore.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-isofit/versions/17/PLAIN-CWL/descriptor/%2FDockstore.cwl
     in:
       # input configuration for stage-in
       # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
       # README available at https://github.com/unity-sds/unity-data-services/blob/main/docker/Readme.md
       stage_in:
-        source: [input_stac, input_unity_dapa_client]
+        source: [input_stac, input_unity_dapa_client, unity_stac_auth]
         valueFrom: |
           ${
               return {
                 download_type: 'S3',
                 stac_json: self[0],
-                unity_stac_auth: 'NONE',
+                unity_stac_auth: self[2],
                 unity_client_id: self[1],
                 downloading_roles: 'data, metadata',
                 log_level: '20'
