@@ -28,3 +28,4 @@ input_aux_stac: '{"numberMatched":{"total_size":1},"numberReturned":1,"stac_vers
 output_isofit_collection_id: "urn:nasa:unity:unity:dev:SBG-L2A_RFL___1"
 output_resample_collection_id: "urn:nasa:unity:unity:dev:SBG-L2A_RSRFL___1"
 output_refcorrect_collection_id: "urn:nasa:unity:unity:dev:SBG-L2A_CORFL___1"
+output_frcover_collection_id: "urn:nasa:unity:unity:dev:SBG-L2B_FRCOV___1"

@@ -1,0 +1,25 @@
+input_stac: 'https://d3vc8w9zcq658.cloudfront.net/am-uds-dapa/collections/urn:nasa:unity:unity:dev:SBG-L2A_CORFL___1/items?filter=start_datetime%20%3E%3D%20%272024-01-03T13%3A19%3A34Z%27%20AND%20start_datetime%20%3C%3D%20%272024-01-03T13%3A19%3A36Z%27'
+
+  # U-DS config
+input_unity_dapa_client: "40c2s0ulbhp9i0fmaph3su9jch"
+input_unity_dapa_api: "https://d3vc8w9zcq658.cloudfront.net"
+
+
+#for chirp rebinning step
+# none -
+input_crid: "001"
+crid: '001'
+sensor: 'EMIT'
+temp_directory: '/tmp'
+output_collection: 'urn:nasa:unity:unity:dev:SBG-L2B_FRCOV___1'
+experimental: "False"
+
+
+
+  # For unity data upload step, unity catalog
+output_frcover_collection_id: "urn:nasa:unity:unity:dev:SBG-L2B_FRCOV___1"
+
+# throws error if 's3:// is used'
+output_data_bucket: "sps-dev-ds-storage"
+
+
