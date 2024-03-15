@@ -41,7 +41,7 @@ outputs:
 
 steps:
   preprocess:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-preprocess/versions/18/PLAIN-CWL/descriptor/%2Fworkflow.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-preprocess/versions/21/PLAIN-CWL/descriptor/%2Fworkflow.cwl
     in:
       # input configuration for stage-in
       # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
