@@ -1,0 +1,28 @@
+input_processing_labels: ["lable1","label2"]
+
+# For CMR Search Step
+input_cmr_collection_name: "C2408009906-LPCLOUD"
+input_cmr_search_start_time: "2024-01-03T13:19:36.000Z"
+input_cmr_search_stop_time: "2024-01-03T13:19:36.000Z"
+
+input_stac: 'https://dxebrgu0bc9w7.cloudfront.net/am-uds-dapa/collections/urn:nasa:unity:unity:test:SBG-L1B_PRE___1/items?filter=start_datetime%20%3E%3D%20%272024-01-03T13%3A19%3A34Z%27%20AND%20start_datetime%20%3C%3D%20%272024-01-03T13%3A19%3A36Z%27'
+unity_stac_auth: 'UNITY'
+
+input_aux_stac: '{"numberMatched":{"total_size":1},"numberReturned":1,"stac_version":"1.0.0","type":"FeatureCollection","links":[{"rel":"self","href":"https://dxebrgu0bc9w7.cloudfront.net/am-uds-dapa/collections/urn:nasa:unity:unity:test:SBG-L1B_PRE___1/items?limit=10"},{"rel":"root","href":"https://dxebrgu0bc9w7.cloudfront.net"}],"features":[{"type":"Feature","stac_version":"1.0.0","id":"urn:nasa:unity:unity:test:SBG-AUX___1:sRTMnet_v120","properties":{"datetime":"2024-02-14T22:04:41.078000Z","start_datetime":"2024-01-03T13:19:36Z","end_datetime":"2024-01-03T13:19:48Z","created":"2024-01-03T13:19:36Z","updated":"2024-02-14T22:05:25.248000Z","status":"completed","provider":"unity"},"geometry":{"type":"Point","coordinates":[0,0]},"links":[{"rel":"collection","href":"."}],"assets":{"sRTMnet_v120.h5":{"href":"s3://sps-test-ds-storage/urn:nasa:unity:unity:test:SBG-AUX___1/urn:nasa:unity:unity:test:SBG-AUX___1:sRTMnet_v120.h5/sRTMnet_v120.h5","title":"sRTMnet_v120.h5","description":"size=-1;checksumType=md5;checksum=unknown;","roles":["data"]},"sRTMnet_v120_aux.npz":{"href":"s3://sps-test-ds-storage/urn:nasa:unity:unity:test:SBG-AUX___1/urn:nasa:unity:unity:test:SBG-AUX___1:sRTMnet_v120.h5/sRTMnet_v120_aux.npz","title":"sRTMnet_v120_aux.npz","description":"size=-1;checksumType=md5;checksum=unknown;","roles":["data"]}},"bbox":[-180,-90,180,90],"stac_extensions":[],"collection":"urn:nasa:unity:unity:test:SBG-AUX___1"}]}'
+
+
+# U-DS config
+input_unity_dapa_client: "71894molftjtie4dvvkbjeard0"
+input_unity_dapa_api: "https://dxebrgu0bc9w7.cloudfront.net"
+
+
+#for chirp rebinning step
+# none -
+input_crid: "001"
+
+# For unity data upload step, unity catalog
+output_collection_id: "urn:nasa:unity:unity:test:SBG-L2A_RFL___1"
+
+# throws error if 's3:// is used'
+output_data_bucket: "sps-test-ds-storage"
+
