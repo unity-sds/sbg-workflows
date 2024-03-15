@@ -14,9 +14,9 @@ input_unity_dapa_api: "https://dxebrgu0bc9w7.cloudfront.net/"
 input_crid: "001"
 
 # For unity data upload step, unity catalog
-output_collection_id: "urn:nasa:unity:ssips:TEST1:CHRP_16_DAY_REBIN___1"
+output_collection_id: "urn:nasa:unity:unity:dev:SBG-L1B_PRE___1"
 
 # throws error if 's3:// is used'
-output_data_bucket: "ssips-test-ds-storage-reproc"
+output_data_bucket: "sps-test-ds-storage"
 
 
