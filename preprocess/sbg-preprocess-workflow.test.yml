@@ -1,9 +1,6 @@
 input_processing_labels: ["lable1","label2"]
 
-# For CMR Search Step
-input_cmr_collection_name: "C2408009906-LPCLOUD"
-input_cmr_search_start_time: "2024-01-03T13:19:36.000Z"
-input_cmr_search_stop_time: "2024-01-03T13:19:36.000Z"
+input_cmr_stac: 'https://cmr.earthdata.nasa.gov/search/granules.stac?collection_concept_id=C2408009906-LPCLOUD&temporal[]=2023-08-10T03:41:03.000Z,2023-08-10T03:41:03.000Z'
 
 # U-DS config
 input_unity_dapa_client: "71894molftjtie4dvvkbjeard0"
@@ -14,7 +11,7 @@ input_unity_dapa_api: "https://dxebrgu0bc9w7.cloudfront.net/"
 input_crid: "001"
 
 # For unity data upload step, unity catalog
-output_collection_id: "urn:nasa:unity:unity:dev:SBG-L1B_PRE___1"
+output_collection_id: "urn:nasa:unity:unity:test:SBG-L1B_PRE___1"
 
 # throws error if 's3:// is used'
 output_data_bucket: "sps-test-ds-storage"
