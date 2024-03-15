@@ -23,7 +23,10 @@ inputs:
 
   #for preprocess  step
   input_crid: string
-  input_stac: File 
+  input_stac: 
+    type:
+    - File 
+    - string
 
   # For unity data stage-out step, unity catalog
   output_collection_id: string
