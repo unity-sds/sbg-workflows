@@ -2,8 +2,8 @@ input_processing_labels: ["lable1","label2"]
 
 # For CMR Search Step
 input_cmr_collection_name: "C2408009906-LPCLOUD"
-input_cmr_search_start_time: "2024-01-03T13:19:36.000Z"
-input_cmr_search_stop_time: "2024-01-03T13:19:36.000Z"
+input_cmr_search_start_time: "2023-08-07T18:27:55.000Z"
+input_cmr_search_stop_time: "2023-08-07T18:27:55.000Z"
 
 # Data Catalog config
 input_unity_dapa_client: "71894molftjtie4dvvkbjeard0"

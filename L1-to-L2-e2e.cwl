@@ -356,6 +356,8 @@ steps:
         valueFrom: |
           ${
               return {
+                cores: 4,
+                refl_scale: 1,
                 crid: self[1],
                 temp_directory: '/tmp',
                 output_collection: self[0]
