@@ -36,6 +36,10 @@ inputs:
     - string
     - File
 
+  input_isofit_cores:
+    type: int
+    default: 4
+
   # For unity data stage-out step, unity catalog
   output_preprocess_collection_id: string
   output_isofit_collection_id: string
@@ -162,12 +166,12 @@ steps:
               };
           }
       parameters:
-        source: [output_isofit_collection_id, input_crid]
+        source: [output_isofit_collection_id, input_crid, input_isofit_cores]
         valueFrom: |
           ${
               return {
                 crid: self[1],
-                cores: 4,
+                cores: self[2],
                 sensor: 'EMIT',
                 temp_directory: '/tmp',
                 output_collection: self[0]
