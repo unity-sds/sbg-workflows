@@ -355,11 +355,11 @@ steps:
           }
       #input configuration for process
       parameters:
-        source: [output_frcover_collection_id, input_crid]
+        source: [output_frcover_collection_id, input_crid, input_cores]
         valueFrom: |
           ${
               return {
-                cores: 4,
+                cores: self[2],
                 refl_scale: 1,
                 crid: self[1],
                 temp_directory: '/tmp',
