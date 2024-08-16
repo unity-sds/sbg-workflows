@@ -32,6 +32,9 @@ inputs:
   #for preprocess  step
   input_crid: string
 
+  #isofit step
+  input_cores: int
+
   input_aux_stac:
     - string
     - File
@@ -162,12 +165,12 @@ steps:
               };
           }
       parameters:
-        source: [output_isofit_collection_id, input_crid]
+        source: [output_isofit_collection_id, input_crid, input_cores]
         valueFrom: |
           ${
               return {
                 crid: self[1],
-                cores: 4,
+                cores: self[2],
                 sensor: 'EMIT',
                 temp_directory: '/tmp',
                 output_collection: self[0]
