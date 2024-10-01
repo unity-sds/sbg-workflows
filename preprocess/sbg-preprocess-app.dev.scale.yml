@@ -1,0 +1,30 @@
+# run as cwltool http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-preprocess/versions/19/PLAIN-CWL/descriptor/%2Fworkflow.cwl sbg-preprocess-app.dev.yml
+{
+  stage_in: {
+                # if the downloads will come from a DAAC (e.g. requiring EDL auth) set to DAAC. If the files will be in the venue S3 bucket, set to 'S3'. Otherwise set to 'HTTP' and require no auth.
+                download_type: 'DAAC',
+
+                # file path, url, or STAC Content
+                stac_json: 'https://cmr.earthdata.nasa.gov/search/granules.stac?collection_concept_id=C2408009906-LPCLOUD&temporal[]=2023-08-10T03:41:03.000Z,2023-08-10T03:41:03.000Z',
+
+                  # To enable downloading from CMR, we need to set "downloading_roles" to blank since it's not supported in CMR. We set keys to data and data1 since those are the keys that CMR uses for multiple data files.
+                downloading_keys: 'data, data1',
+                downloading_roles: '',
+
+                  # the client id for generating a token
+                unity_client_id: '40c2s0ulbhp9i0fmaph3su9jch',
+                  # because we do not need to be authoirzed to 'GET' the earthdata stac, set this to 'NONE'. Set this to 'UNITY' if the stac_json is a unity entry
+                unity_stac_auth: 'NONE'
+          },
+parameters: {
+                crid: '001',
+                sensor: 'EMIT',
+                temp_directory: '/tmp',
+                output_collection: 'urn:nasa:unity:unity:dev:SBG-L1B_PRE___1' 
+          },
+stage_out: {
+                collection_id: 'urn:nasa:unity:unity:dev:SBG-L1B_PRE___1',
+                staging_bucket: 'sps-dev-ds-storage',
+                result_path_prefix: 'stage_out'
+          }
+}
