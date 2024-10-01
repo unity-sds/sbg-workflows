@@ -24,7 +24,7 @@ parameters: {
           },
 stage_out: {
                 collection_id: 'urn:nasa:unity:unity:dev:SBG-L1B_PRE___1',
-                staging_bucket: 'sps-dev-ds-storage',
+                staging_bucket: 'unity-dev-unity-unity-data',
                 result_path_prefix: 'stage_out'
           }
 }
