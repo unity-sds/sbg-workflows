@@ -10,10 +10,9 @@ input_unity_dapa_client: "40c2s0ulbhp9i0fmaph3su9jch"
 input_unity_dapa_api: "https://d3vc8w9zcq658.cloudfront.net"
 
 
-#for chirp rebinning step
 # none -
 input_crid: "001"
-
+input_cores: 16
 
 # throws error if 's3:// is used'
 output_data_bucket: "unity-dev-unity-unity-data"
