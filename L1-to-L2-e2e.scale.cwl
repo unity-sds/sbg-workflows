@@ -119,7 +119,7 @@ steps:
     out: [stage_out_results, stage_out_success, stage_out_failures]
 
   isofit:
-    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-isofit/versions/24/PLAIN-CWL/descriptor/%2FDockstore.cwl
+    run: http://awslbdockstorestack-lb-1429770210.us-west-2.elb.amazonaws.com:9998/api/ga4gh/trs/v2/tools/%23workflow%2Fdockstore.org%2Fmike-gangl%2FSBG-unity-isofit/versions/25/PLAIN-CWL/descriptor/%2FDockstore.cwl
     in:
       # input configuration for stage-in
       # edl_password_type can be either 'BASE64' or 'PARAM_STORE' or 'PLAIN'
