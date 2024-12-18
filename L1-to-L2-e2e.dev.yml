@@ -13,6 +13,7 @@ input_unity_dapa_api: "https://d3vc8w9zcq658.cloudfront.net"
 #for chirp rebinning step
 # none -
 input_crid: "001"
+input_cores: 16
 
 # For unity data upload step, unity catalog
 output_preprocess_collection_id: "urn:nasa:unity:unity:dev:SBG-L1B_PRE___1"
